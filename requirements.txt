@@ -13,6 +13,7 @@ mypy-extensions==0.4.3
 pathspec==0.8.1
 psycopg2==2.8.6
 PyJWT==1.7.1
+python-decouple==3.3
 pytz==2020.4
 regex==2020.11.13
 sqlparse==0.4.1

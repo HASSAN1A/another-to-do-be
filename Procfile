@@ -1,1 +1,1 @@
-web: gunicorn anothertodo.wsgi
+web: gunicorn anothertodo.wsgi --log-file -
