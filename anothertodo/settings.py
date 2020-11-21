@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     "todoapp",
     "rest_framework",
     "corsheaders",
+    "authentication",
 ]
 
 MIDDLEWARE = [
