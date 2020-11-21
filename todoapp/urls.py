@@ -1,4 +1,8 @@
 from django.urls import path
-from .views import home
+from .views import home, TodoViewSet
+from rest_framework.routers import DefaultRouter
 
-urlpatterns = [path("", home, name="home")]
+router = DefaultRouter()
+router.register(r"", TodoViewSet, basename="todo")
+
+urlpatterns = [path("home", home, name="home")] + router.urls
