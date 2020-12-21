@@ -45,6 +45,12 @@ INSTALLED_APPS = [
     "rest_framework",
     "corsheaders",
     "authentication",
+    "django.contrib.sites",
+    "rest_auth",
+    "allauth",
+    "allauth.account",
+    "rest_auth.registration",
+    # "rest_registration",
 ]
 
 MIDDLEWARE = [
@@ -136,6 +142,13 @@ USE_TZ = True
 
 STATIC_URL = "/static/"
 
+SITE_ID = 1
+ACCOUNT_EMAIL_VERIFICATION = "none"
+
+# JWT settings
+
+REST_USE_JWT = True
+
 REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
     # or allow read-only access for unauthenticated users.
@@ -144,7 +157,7 @@ REST_FRAMEWORK = {
         "rest_framework.permissions.IsAuthenticated",
     ],
     "DEFAULT_AUTHENTICATION_CLASSES": [
-        "rest_framework.authentication.BasicAuthentication",
+        # "rest_framework.authentication.BasicAuthentication",
         "rest_framework.authentication.SessionAuthentication",
         "rest_framework_simplejwt.authentication.JWTAuthentication",
     ],
@@ -173,6 +186,17 @@ SIMPLE_JWT = {
     "SLIDING_TOKEN_REFRESH_LIFETIME": timedelta(days=1),
 }
 CORS_ALLOW_ALL_ORIGINS = True
+
+REST_REGISTRATION = {
+    "REGISTER_VERIFICATION_ENABLED": False,
+    "REGISTER_EMAIL_VERIFICATION_ENABLED": False,
+    "RESET_PASSWORD_VERIFICATION_ENABLED": False,
+}
+
+# RESET_PASSWORD_VERIFICATION_URL = "/"
+# REGISTER_VERIFICATION_URL = "/"
+# REGISTER_EMAIL_VERIFICATION_URL = "/"
+# VERIFICATION_FROM_EMAIL = "starfordomwakwe@gmail.com"
 print("DATABASES ", DATABASES)
 # Activate Django-Heroku.
 django_heroku.settings(locals())
